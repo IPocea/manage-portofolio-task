@@ -1,0 +1,17 @@
+<section>
+  <ng-container *ngIf="!isLoading; else loading">
+    <h2 class="text-center">Manage portofolio</h2>
+    <app-mat-table-manage-portofolio
+      *ngIf="portofoliosPagination?.data; else loading"
+      [portofoliosPagination]="portofoliosPagination"
+      (sendFilters)="requestCompanies($event)"
+    >
+    </app-mat-table-manage-portofolio>
+  </ng-container>
+</section>
+
+<ng-template #loading>
+  <div class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

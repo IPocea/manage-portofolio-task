@@ -1,0 +1,93 @@
+<header
+  cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane"
+  cdkDragHandle
+  class="dialog-title"
+>
+  <h4>{{ portofolioWeb ? "Edit Website" : "Add Website" }}</h4>
+</header>
+<main mat-dialog-content>
+  <form
+    (ngSubmit)="addEditPortofolioWeb()"
+    [formGroup]="addEditPortofolioWebForm"
+    autocomplete="off"
+  >
+    <input type="text" name="email" style="display: none" />
+    <input type="password" style="display: none" />
+    <input type="email" style="display: none" />
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Website name</mat-label>
+        <input type="text" matInput formControlName="name" autocomplete="off" />
+        <mat-error
+          *ngIf="addEditPortofolioWebForm.get('name').hasError('required')"
+        >
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Short description</mat-label>
+        <input type="text" matInput formControlName="description" />
+        <mat-error
+          *ngIf="addEditPortofolioWebForm.get('description').hasError('required')"
+        >
+          Description is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Website URL</mat-label>
+        <input type="text" matInput formControlName="portofolioWebUrl" />
+        <mat-error
+          *ngIf="
+            addEditPortofolioWebForm.get('portofolioWebUrl').hasError('required')
+          "
+        >
+          Website URL is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Visibility</mat-label>
+        <mat-select name="status" formControlName="isVisible">
+          <mat-option
+            *ngFor="let choice of portofolioStatusChoices"
+            [value]="choice.value"
+          >
+            {{ choice.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="addEditPortofolioWebForm.get('isVisible').hasError('required')"
+        >
+          Visibility is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <div class="btns-container">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="addEditPortofolioWebForm.invalid || isLoading"
+        >
+          {{ addEditPortofolioWebBtnMessage }}
+        </button>
+        <button
+          type="button"
+          (click)="closeDialog()"
+          mat-raised-button
+          color="accent"
+          [disabled]="isLoading"
+        >
+          Cancel
+        </button>
+      </div>
+    </section>
+  </form>
+</main>

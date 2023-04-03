@@ -1,0 +1,48 @@
+@use "src/styles/index.scss" as styles;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  app-header {
+    background-color: styles.$primary;
+    color: styles.$white;
+  }
+  .main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    .left-side {
+      padding-bottom: 5px;
+      background-color: styles.$primary;
+      background-image: linear-gradient(
+        to bottom right,
+        styles.$primary,
+        styles.$secondary
+      );
+    }
+    .right-side {
+      padding: 10px;
+      background-color: styles.$white;
+      color: styles.$textColor;
+      overflow: auto;
+    }
+  }
+  .main-container-not-logged-in {
+    flex: 1;
+  }
+
+  @media screen and (min-width: 820px) {
+    .main-container {
+      flex-direction: row;
+      .left-side {
+        width: 150px;
+      }
+      .right-side {
+        width: 100%;
+      }
+    }
+  }
+}

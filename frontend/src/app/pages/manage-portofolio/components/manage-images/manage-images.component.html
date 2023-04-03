@@ -1,0 +1,83 @@
+<div class="manage-images-header">
+  <mat-form-field>
+    <input
+      matInput
+      (keyup)="applySearchFilter()"
+      (keydown)="clearTimeout()"
+      placeholder="Filter"
+      [(ngModel)]="searchValue"
+    />
+    <button
+      [ngClass]="!searchValue ? 'hidden' : ''"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="clearSearchValue()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-raised-button class="upload-icon" (click)="openDragAndDrop()">
+    <mat-icon>backup</mat-icon><span class="ml-3"> Upload images</span>
+  </button>
+</div>
+
+<div class="manage-images-upper-side">
+  <mat-button-toggle-group
+    class="select-buttons"
+    name="fontStyle"
+    aria-label="Font Style"
+  >
+    <div
+      class="manage-images-btns-inner-container"
+      *ngFor="let image of imagePagination?.data"
+    >
+      <mat-button-toggle
+        [value]="image._id"
+        [matTooltip]="image.name"
+        matTooltipPosition="after"
+        (click)="showImage(image)"
+        class="text-ellipsis long-btn"
+      >
+        {{
+          image.name +
+            "." +
+            image.mimeType.slice(image.mimeType.indexOf("/") + 1)
+        }}
+      </mat-button-toggle>
+      <mat-button-toggle
+        (click)="deleteImage(image)"
+        class="short-btn"
+        matTooltip="Delete image"
+        matTooltipPosition="after"
+      >
+        <mat-icon>delete_forever</mat-icon>
+      </mat-button-toggle>
+    </div>
+  </mat-button-toggle-group>
+  <div class="image-box" *ngIf="imgUrl">
+    <img [src]="imgUrl" [alt]="selectedImage?.name" />
+    <div class="image-overlay">
+      <span>{{
+        "Added by " +
+          selectedImage?.addedBy?.firstName +
+          " " +
+          selectedImage?.addedBy?.lastName +
+          " on " +
+          (selectedImage?.createdAt | customDate)
+      }}</span>
+    </div>
+  </div>
+</div>
+<div class="manage-images-lower-side">
+  <mat-paginator
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="pageSizeOptions"
+    [length]="length"
+    (page)="handlePageChange($event)"
+    [disabled]="isLoading"
+  ></mat-paginator>
+</div>
+<button mat-raised-button color="accent" (click)="closeDialog()">Close</button>

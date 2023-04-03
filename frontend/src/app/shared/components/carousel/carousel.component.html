@@ -1,0 +1,12 @@
+<figure
+  (mouseenter)="startCarousel()"
+  (mouseleave)="stopCarousel()"
+  class="carousel-container"
+>
+  <img
+    *ngIf="portofolioWeb"
+    [class]="carouselClass"
+    [src]="imgUrl"
+    [alt]="alt"
+  />
+</figure>

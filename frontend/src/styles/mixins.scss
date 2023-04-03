@@ -1,0 +1,255 @@
+@mixin fullScreenCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+@mixin auth-forms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  section {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    h1,
+    p {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      width: 90%;
+      h1 {
+        text-align: center;
+      }
+      mat-form-field {
+        .registration-pass-icons {
+          display: flex;
+          gap: 3px;
+          .cursor-pointer {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 820px) {
+    section {
+      form {
+        width: 600px;
+      }
+    }
+  }
+}
+
+@mixin mat-table {
+  .table-container.mat-elevation-z8 {
+    overflow-x: auto;
+    .mat-table.mat-table {
+      min-width: 450px;
+    }
+    mat-table {
+      mat-header-row {
+        mat-header-cell {
+          overflow-x: auto;
+          min-width: 150px;
+        }
+      }
+      mat-row {
+        mat-cell {
+          overflow-x: auto;
+          min-width: 150px;
+          button {
+            cursor: pointer;
+            border: none;
+            background: inherit;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  .table-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 5px;
+  }
+  .mat-header-row,
+  .mat-row {
+    display: inline-flex;
+  }
+
+  @media screen and (min-width: 1500px) {
+    .mat-header-row,
+    .mat-row {
+      display: flex;
+    }
+  }
+}
+
+@mixin add-form {
+  main {
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      section {
+        width: 100%;
+        mat-form-field {
+          width: 100%;
+        }
+        p.form-text {
+          font-size: smaller;
+        }
+      }
+      section:last-child {
+        .btns-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 820px) {
+    main {
+      form {
+        section {
+          width: 45%;
+        }
+        section:last-child {
+          .btns-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2px;
+            button {
+              width: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin change-password {
+  main {
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      section {
+        width: 100%;
+        mat-form-field {
+          width: 100%;
+        }
+        p.form-text {
+          font-size: smaller;
+        }
+      }
+      section:last-child {
+        .btns-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 820px) {
+    main {
+      form {
+        section {
+          width: 45%;
+        }
+        section:last-child {
+          width: 91%;
+          .btns-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2px;
+            button {
+              width: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin text-shadow-animation {
+  header.text-animation,
+  :before,
+  :after {
+    box-sizing: border-box;
+  }
+  header.text-animation {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80em;
+    h2 {
+      animation: text-shadow 1.5s ease-in-out infinite;
+      font-size: 5em;
+      font-weight: 900;
+      line-height: 1;
+    }
+    h2:hover {
+      animation-play-state: paused;
+    }
+    @keyframes text-shadow {
+      0% {
+        transform: translateY(0);
+        text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+      }
+
+      20% {
+        transform: translateY(-1em);
+        text-shadow: 0 0.125em 0 #0c2ffb, 0 0.25em 0 #2cfcfd,
+          0 -0.125em 0 #fb203b, 0 -0.25em 0 #fefc4b;
+      }
+
+      40% {
+        transform: translateY(0.5em);
+        text-shadow: 0 -0.0625em 0 #0c2ffb, 0 -0.125em 0 #2cfcfd,
+          0 0.0625em 0 #fb203b, 0 0.125em 0 #fefc4b;
+      }
+
+      60% {
+        transform: translateY(-0.25em);
+        text-shadow: 0 0.03125em 0 #0c2ffb, 0 0.0625em 0 #2cfcfd,
+          0 -0.03125em 0 #fb203b, 0 -0.0625em 0 #fefc4b;
+      }
+
+      80% {
+        transform: translateY(0);
+        text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}

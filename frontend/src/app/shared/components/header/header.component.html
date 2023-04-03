@@ -1,0 +1,18 @@
+<nav>
+  <h4 routerLink="/home">Portofolio Task</h4>
+  <section>
+    <ng-container *ngIf="user; else notLoggedIn">
+      <span class="user-info" [matMenuTriggerFor]="userInfo">
+        <mat-icon>account_circle</mat-icon>
+        <span>{{ user | userInitials }}</span>
+      </span>
+      <mat-menu #userInfo>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    </ng-container>
+  </section>
+</nav>
+
+<ng-template #notLoggedIn>
+  <span routerLink="/login" class="user-info"> Login </span>
+</ng-template>

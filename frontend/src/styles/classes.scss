@@ -1,0 +1,137 @@
+.mat-snack-bar-container {
+  text-align: center;
+  &.info {
+    color: $infoColor;
+    background-color: $infoBackGround;
+    border: 2px solid $infoBorder;
+  }
+  &.error {
+    color: $errorColor;
+    background-color: $errorBackground;
+    border: 2px solid $errorBorder;
+  }
+}
+
+.mat-simple-snackbar {
+  display: inline-block !important;
+}
+
+.mat-table {
+  background-color: $tenary;
+}
+
+.mat-cell,
+.mat-header-cell {
+  color: $textColor;
+  background-color: $tenary;
+}
+.mat-cell {
+  small {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+}
+.mat-cell:hover {
+  background-color: $trHover;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.mat-input-element,
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $textColor;
+  caret-color: $textColor;
+}
+
+// start side-nav
+
+.mat-icon-size {
+  font-size: 35px;
+  height: 35px;
+  width: 35px;
+  color: $white;
+}
+
+.active-side-nav-link,
+.side-nav-link:hover {
+  background-color: $primaryLight;
+}
+
+.side-nav-link {
+  a {
+    color: $white;
+  }
+}
+
+// end side-nav
+
+.set-up-my-company-container {
+  background-color: $white;
+  color: $textColor;
+}
+
+.suffix-inline-icons {
+  display: flex;
+  gap: 3px;
+  .cursor-pointer {
+    cursor: pointer;
+  }
+}
+
+.error {
+  background-color: $errorBackground;
+  color: $errorColor;
+}
+
+.line-break-text {
+  white-space: pre-wrap;
+}
+
+.spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section {
+  form {
+    button.padding-12 {
+      padding: 12px;
+    }
+  }
+}
+
+.padding-12 {
+  padding: 12px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.dialog-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: -24px -24px 0px -24px;
+  padding: 10px;
+  background-color: $primary;
+  color: $white;
+  cursor: move;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,0 +1,41 @@
+<section *ngIf="!isLoading; else loading" class="home-container">
+  <ng-container *ngIf="portofolioWebs.length; else emptyPortofolio">
+    <header class="text-animation">
+      <h2 class="text-center">Check out this protofolio</h2>
+    </header>
+    <div class="portofolio-webs-container">
+      <ng-container *ngFor="let portofolioWeb of portofolioWebs">
+        <article class="card">
+          <h4 class="text-center">{{ portofolioWeb.name }}</h4>
+          <app-carousel [portofolioWeb]="portofolioWeb"></app-carousel>
+          <div class="card-text" [matTooltip]="portofolioWeb.description">
+            {{ portofolioWeb.description }}
+          </div>
+          <footer>
+            <a target="_blank" [href]="'//' + portofolioWeb.portofolioWebUrl"
+              ><button mat-raised-button color="primary">
+                {{ portofolioWeb.portofolioWebUrl }}
+              </button></a
+            >
+          </footer>
+        </article>
+      </ng-container>
+    </div>
+  </ng-container>
+</section>
+
+<ng-template #loading>
+  <div class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #emptyPortofolio>
+  <div class="empty-portofolio">
+    <div>
+      <mat-icon>bookmark</mat-icon>
+      <h2>Nothing saved yet</h2>
+      <p>There is no website at this moment</p>
+    </div>
+  </div>
+</ng-template>

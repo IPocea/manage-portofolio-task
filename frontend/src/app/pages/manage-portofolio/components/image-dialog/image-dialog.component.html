@@ -1,0 +1,4 @@
+<div class="img-box-dialog">
+  <button (click)="closeDialog()"><mat-icon>clear</mat-icon></button>
+  <img *ngIf="imgUrl" [src]="imgUrl" [alt]="selectedImage?.name" />
+</div>

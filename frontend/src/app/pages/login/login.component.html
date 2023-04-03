@@ -1,0 +1,68 @@
+<ng-container *ngIf="!isLoading; else loading">
+  <section>
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+      <h1>Login</h1>
+      <input type="text" name="username" class="d-none" />
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="username" />
+
+        <mat-icon matSuffix aria-hidden="false">email</mat-icon>
+
+        <mat-error *ngIf="loginForm.get('username').hasError('required')"
+          >Email is <strong>required</strong></mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          [type]="isPasswordHidden ? 'password' : 'text'"
+          autocomplete="new-password"
+          matInput
+          formControlName="password"
+        />
+
+        <mat-icon
+          matSuffix
+          aria-hidden="false"
+          matTooltip="{{
+            isPasswordHidden ? 'Show Password' : 'Hide Password'
+          }}"
+          class="cursor-pointer"
+          (click)="isPasswordHidden = !isPasswordHidden"
+        >
+          {{ isPasswordHidden ? "visibility_off" : "visibility" }}
+        </mat-icon>
+
+        <mat-error *ngIf="loginForm.get('password').hasError('required')"
+          >Password is <strong>required</strong></mat-error
+        >
+        <mat-error *ngIf="loginForm.get('password').hasError('pattern')">
+          Invalid password
+        </mat-error>
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mat-focus-indicator secondary-text primary-bg mat-button mat-button-base padding-12"
+        [disabled]="loginForm.invalid || isLogging"
+      >
+        Login
+      </button>
+      <div class="text-center">
+        Don't have an account yet?
+        <a routerLink="/registration">Register</a>
+      </div>
+      <div class="text-center">
+        Did you <a routerLink="/forgot-password">forgot</a> your password?
+      </div>
+    </form>
+  </section>
+</ng-container>
+
+<ng-template #loading>
+  <div class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

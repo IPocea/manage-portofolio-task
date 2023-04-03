@@ -1,0 +1,24 @@
+<nav>
+  <figure
+    class="side-nav-link"
+    routerLinkActive="active-side-nav-link"
+    routerLink="/manage-portofolio"
+    (click)="scrollToPages()"
+  >
+    <a routerLink="/manage-portofolio" (click)="scrollToPages()">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <figcaption>Manage portofolio</figcaption>
+    </a>
+  </figure>
+  <figure
+    class="side-nav-link"
+    routerLinkActive="active-side-nav-link"
+    routerLink="/home"
+    (click)="scrollToPages()"
+  >
+    <a routerLink="/home" (click)="scrollToPages()">
+      <mat-icon>home</mat-icon>
+      <figcaption>Home</figcaption>
+    </a>
+  </figure>
+</nav>

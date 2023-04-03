@@ -1,0 +1,34 @@
+@import "../../../../styles/index.scss";
+
+:host {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    h4 {
+      cursor: pointer;
+    }
+    h4:hover {
+      opacity: 0.8;
+    }
+    h4:active {
+      opacity: 0.6;
+    }
+    section {
+      p {
+        cursor: pointer;
+      }
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+  @media screen and (min-width: 820px) {
+    nav {
+      flex-direction: row;
+    }
+  }
+}

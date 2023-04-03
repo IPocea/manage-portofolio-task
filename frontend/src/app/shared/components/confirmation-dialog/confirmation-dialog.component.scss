@@ -1,0 +1,13 @@
+:host {
+  div {
+    main {
+      margin: 10px 0;
+    }
+
+    footer.confirmation-dialog-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

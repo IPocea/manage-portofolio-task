@@ -1,0 +1,32 @@
+<div>
+  <header
+    cdkDrag
+    cdkDragRootElement=".cdk-overlay-pane"
+    cdkDragHandle
+    class="dialog-title"
+  >
+    <h4>{{ title }}</h4>
+  </header>
+
+  <main mat-dialog-content>
+    {{ content }}
+  </main>
+  <footer mat-dialog-actions class="confirmation-dialog-buttons">
+    <button
+      type="button"
+      (click)="confirm()"
+      mat-raised-button
+      color="primary"
+    >
+      Confirm
+    </button>
+    <button
+      type="button"
+      (click)="closeDialog()"
+      mat-raised-button
+      color="accent"
+    >
+      Cancel
+    </button>
+  </footer>
+</div>
